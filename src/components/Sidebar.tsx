@@ -5,7 +5,7 @@ import Navigator from "./element/Navigator";
 const Sidebar = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex flex-row h-full ">
-      <nav className="w-[240px] border-r-[1px] border-neutral-400">
+      <nav className="hidden lg:block w-[240px] border-r-[1px] border-neutral-400">
         <div className="p-[24px]">
           <Logo />
         </div>
@@ -13,7 +13,7 @@ const Sidebar = ({ children }: { children: React.ReactNode }) => {
           <Navigator />
         </div>
       </nav>
-      <div className="flex-1">{children}</div>
+      <div className="flex-1 min-h-[600px]">{children}</div>
     </div>
   );
 };

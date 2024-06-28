@@ -1,23 +1,16 @@
 "use client";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import PagePadding from "./PagePadding";
 import { FaChromecast, FaSearch } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
+import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import Logo from "./Logo";
 import Navigator from "./Navigator";
 import { cn } from "@/lib/utils";
+import useUIState from "@/hooks/useUIState";
+import UserIcon from "./UserIcon";
 
 const HeaderDrawer = ({ children }: { children: React.ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,6 +37,7 @@ const HeaderDrawer = ({ children }: { children: React.ReactNode }) => {
 };
 
 const Header = ({ children }: { children: React.ReactNode }) => {
+  const { homeImgSrc } = useUIState();
   const [isScrolled, setIsScrolled] = useState(false);
   const headRef = useRef<HTMLDivElement | null>(null);
 
@@ -65,7 +59,7 @@ const Header = ({ children }: { children: React.ReactNode }) => {
         <div className="relative h-full w-full">
           <Image
             className="object-cover"
-            src="https://images.unsplash.com/photo-1707833558984-3293e794031c"
+            src={homeImgSrc === "" ? "https://images.unsplash.com/photo-1707833558984-3293e794031c" : homeImgSrc}
             fill
             alt="back media image"
           />
@@ -89,10 +83,7 @@ const Header = ({ children }: { children: React.ReactNode }) => {
             </HeaderDrawer>
             <article className="flex items-center gap-6">
               <FaChromecast size={26} />
-              <Avatar>
-                <AvatarImage src="https://github.com/shadcn.png" />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
+              <UserIcon />
             </article>
           </div>
         </PagePadding>

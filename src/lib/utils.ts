@@ -12,3 +12,8 @@ export function getRandomInt(min: number, max: number) {
   const maxNum = Math.floor(max);
   return Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
 }
+
+export function getRandomElementFromArray(array: any[]) {
+  const len = array.length;
+  return array[getRandomInt(0, len - 1)];
+}

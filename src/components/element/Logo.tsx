@@ -5,7 +5,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import IconButton from "./IconButton";
 import { useRouter } from "next/navigation";
 import { IoMdClose } from "react-icons/io";
-const Logo = ({ isTrigger = false, onClickClose }: { isTrigger?: boolean; onClickClose: () => void }) => {
+const Logo = ({ isTrigger = false, onClickClose = () => {} }: { isTrigger?: boolean; onClickClose?: () => void }) => {
   const { push } = useRouter();
   const clickLogo = () => {
     push("/");

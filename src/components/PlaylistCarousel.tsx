@@ -28,7 +28,7 @@ const PlaylistCarousel: React.FC<PlaylistCarouselProps> = ({ title, subTitle, th
         </article>
         <CarouselContent>
           {playlistArray?.map((item) => (
-            <CarouselItem key={item.id} className="md:basis-1/2 lg:basis-1/3 xl:basis-1/5">
+            <CarouselItem key={item.id} className="basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5">
               <PlaylistCard playlist={item} />
             </CarouselItem>
           ))}

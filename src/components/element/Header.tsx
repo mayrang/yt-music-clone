@@ -88,7 +88,7 @@ const Header = ({ children }: { children: React.ReactNode }) => {
           </div>
         </PagePadding>
       </section>
-      <section className="absolute">{children}</section>
+      <section className="absolute w-full">{children}</section>
     </header>
   );
 };

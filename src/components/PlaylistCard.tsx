@@ -45,7 +45,7 @@ const PlaylistCard: React.FC<PlaylistCardProps> = ({ playlist }) => {
         </div>
       </section>
       <section className="mt-2">
-        <div>{owner}'s playlist</div>
+        <div>{owner}&apos;s playlist</div>
         <div className="text-neutral-500">
           {owner} - 트랙 {songList.length}개
         </div>

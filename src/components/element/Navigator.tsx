@@ -14,7 +14,7 @@ const Navigator = () => {
     return [
       { label: "홈", icon: <GoHome size={24} />, href: "/", isActive: pathname === "/" },
       { label: "둘러보기", icon: <FiCompass size={24} />, href: "/explore", isActive: pathname === "/explore" },
-      { label: "보관함", icon: <FiMusic size={24} />, href: "/playlist", isActive: pathname === "/playlist" },
+      { label: "보관함", icon: <FiMusic size={24} />, href: "/library", isActive: pathname === "/library" },
     ];
   }, [pathname]);
   return (

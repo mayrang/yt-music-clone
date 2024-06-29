@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 
-const IconButton = ({ icon, onClickIcon = () => {} }: { icon: React.ReactNode; onClickIcon: () => void }) => {
+const IconButton = ({ icon, onClickIcon = () => {} }: { icon: React.ReactNode; onClickIcon?: () => void }) => {
   return (
     <div
       onClick={onClickIcon}

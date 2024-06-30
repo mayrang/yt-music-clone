@@ -12,7 +12,7 @@ import { useRouter } from "next/navigation";
 const SongCardRowExpand = ({ song }: { song: Song }) => {
   const { push } = useRouter();
   const onClickChannel = () => {
-    push(`/channer/${song.channelId}`);
+    push(`/channel/${song.channelId}`);
   };
   return (
     <div className="flex flex-row gap-4 w-full h-[48px] items-center relative group ">

@@ -153,6 +153,10 @@ export const getPlaylistById = async (id) => {
   return dummyPlaylistArray.filter((playlist) => playlist.id === id)?.[0];
 };
 
+export const getChannelById = async (id) => {
+  return dummyChannelList.filter((channel) => channel.id === id)?.[0];
+};
+
 export const getSongListTop10 = async () =>
   dummyAllSongList.map((song, idx) => {
     return {
@@ -196,20 +200,14 @@ export const dummyChannelList = [
     id: 5,
     subscribers: 3900,
     name: "도도",
-    songList: [
-      ...getSongsBychannel("50meru"),
-      ...getSongsBychannel("CattyBGM"),
-    ],
-    playlistArray: [
-      ...getPlaylistByOwner("50meru"),
-      ...getPlaylistByOwner("CattyBGM"),
-    ],
+    songList: [...getSongsBychannel("50meru"), ...getSongsBychannel("CattyBGM")],
+    playlistArray: [...getPlaylistByOwner("50meru"), ...getPlaylistByOwner("CattyBGM")],
   },
 ];
 
-export const getChannelById = async (id) => {
-  return dummyChannelList.filter((channel) => channel.id === id)?.[0];
-};
+// export const getChannelById = async (id) => {
+//   return dummyChannelList.filter((channel) => channel.id === id)?.[0];
+// };
 
 // home - 카테고리
 export const homeCategoryList = [

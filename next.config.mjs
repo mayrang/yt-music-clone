@@ -2,6 +2,7 @@
 const nextConfig = {
   images: {
     remotePatterns: [{ protocol: "https", hostname: "*.unsplash.com" }],
+    minimumCacheTTL: 86400,
   },
 };
 

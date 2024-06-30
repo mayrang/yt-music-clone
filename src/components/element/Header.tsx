@@ -36,7 +36,7 @@ const HeaderDrawer = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-const Header = ({ children }: { children: React.ReactNode }) => {
+const Header = ({ imageSrc, children }: { imageSrc?: string; children: React.ReactNode }) => {
   const { homeImgSrc } = useUIState();
   const [isScrolled, setIsScrolled] = useState(false);
   const headRef = useRef<HTMLDivElement | null>(null);
@@ -59,7 +59,14 @@ const Header = ({ children }: { children: React.ReactNode }) => {
         <div className="relative h-full w-full">
           <Image
             className="object-cover"
-            src={homeImgSrc === "" ? "https://images.unsplash.com/photo-1707833558984-3293e794031c" : homeImgSrc}
+            placeholder="empty"
+            src={
+              imageSrc
+                ? imageSrc
+                : homeImgSrc === ""
+                ? "https://images.unsplash.com/photo-1707833558984-3293e794031c"
+                : homeImgSrc
+            }
             fill
             alt="back media image"
           />

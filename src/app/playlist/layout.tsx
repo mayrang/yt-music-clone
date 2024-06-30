@@ -1,12 +1,9 @@
 import Header from "@/components/element/Header";
 import React from "react";
 
-const layout = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <div className="h-full w-full">
-      <Header>{children}</Header>
-    </div>
-  );
+const layout = async (props: { children: React.ReactNode }) => {
+  console.log(props);
+  return <div className="h-full w-full">{props.children}</div>;
 };
 
 export default layout;

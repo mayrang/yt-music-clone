@@ -6,15 +6,21 @@ import React from "react";
 import { IoEllipsisVertical, IoPlayOutline } from "react-icons/io5";
 import IconButton from "./element/IconButton";
 import { getRandomElementFromArray } from "@/lib/utils";
+import usePlayerState from "@/hooks/usePlayerState";
 interface PlaylistCardProps {
   playlist: Playlist;
 }
 
 const PlaylistCard: React.FC<PlaylistCardProps> = ({ playlist }) => {
+  const { addSonglist } = usePlayerState();
   const { owner = "", playlistName, songList = [], id } = playlist;
   const { push } = useRouter();
   const imgSrc = (getRandomElementFromArray(songList) as Song)?.imageSrc;
-
+  const onClickPlay = (e: React.MouseEvent<HTMLDivElement>) => {
+    console.log("play");
+    e.stopPropagation();
+    addSonglist(playlist.songList);
+  };
   const onClickPlaylist = () => {
     push(`/playlist?list=${id}`);
   };
@@ -37,7 +43,7 @@ const PlaylistCard: React.FC<PlaylistCardProps> = ({ playlist }) => {
             </div>
           </div>
           <div
-            onClick={() => {}}
+            onClick={onClickPlay}
             className="absolute bottom-4 right-4 flex items-center justify-center transform-gpu bg-black/70 transition-transform hover:scale-110 w-[45px] h-[45px] rounded-full hover:bg-black/90 pl-[1.5px]"
           >
             <IoPlayOutline color="red" size={24} />

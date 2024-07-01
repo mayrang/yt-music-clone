@@ -1,10 +1,15 @@
+"use client";
 import React from "react";
 import Logo from "./element/Logo";
 import Navigator from "./element/Navigator";
+import usePlayerState from "@/hooks/usePlayerState";
+import { cn } from "@/lib/utils";
 
 const Sidebar = ({ children }: { children: React.ReactNode }) => {
+  const { isVisible } = usePlayerState();
+
   return (
-    <div className="flex flex-row h-full ">
+    <div className={cn("flex flex-row h-full ", isVisible && "min-h-[calc(100dvh-72px)]")}>
       <nav className="hidden lg:block w-[240px] border-r-[1px] border-neutral-400">
         <div className="p-[24px]">
           <Logo />

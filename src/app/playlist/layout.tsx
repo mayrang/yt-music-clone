@@ -1,4 +1,3 @@
-import Header from "@/components/element/Header";
 import React from "react";
 
 const layout = async (props: { children: React.ReactNode }) => {
